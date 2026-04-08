@@ -1,8 +1,9 @@
 import { ModeToggle } from '@/components/mode-toggle'
 import { SidebarTrigger } from '@/components/ui/sidebar'
-import { UserButton } from '@clerk/nextjs'
+import { UserButton, ClerkLoading, ClerkLoaded } from '@clerk/nextjs'
 import { FeebackForm } from '@/features/client/feeback/components'
 import { Notification } from '@/features/client/notification/components'
+import { Loader2 } from 'lucide-react'
 
 export function AppNavbar() {
   return (
@@ -15,7 +16,14 @@ export function AppNavbar() {
         <FeebackForm />
         <Notification />
         <ModeToggle />
-        <UserButton />
+        <ClerkLoading>
+          <div className='h-8 w-8 rounded-full bg-muted border border-border animate-pulse flex items-center justify-center'>
+            <div className='h-4 w-4 rounded-full bg-muted-foreground/20' />
+          </div>
+        </ClerkLoading>
+        <ClerkLoaded>
+          <UserButton />
+        </ClerkLoaded>
       </div>
     </div>
   )
