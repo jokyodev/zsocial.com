@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
+import { ThemeProvider } from '@/providers/theme-provider'
+import { ClerkProvider } from '@clerk/nextjs'
 const inter = Inter({
   subsets: ['latin'],
 })
@@ -16,8 +17,23 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' className={inter.className}>
-      <body className='min-h-full flex flex-col'>{children}</body>
+    <html
+      lang='vi'
+      className={inter.className}
+      suppressHydrationWarning
+    >
+      <body className='min-h-full flex flex-col'>
+        <ClerkProvider afterSignOutUrl='/'>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='system'
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </ClerkProvider>
+      </body>
     </html>
   )
 }
