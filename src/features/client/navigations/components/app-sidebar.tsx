@@ -1,14 +1,18 @@
 import {
   Sidebar,
+  SidebarContent,
+  SidebarFooter,
   SidebarHeader,
   SidebarMenuButton,
+  SidebarTrigger,
 } from '@/components/ui/sidebar'
+import { UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 
 import Link from 'next/link'
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar collapsible='icon'>
       <SidebarHeader>
         <SidebarMenuButton>
           <Link
@@ -25,6 +29,7 @@ export function AppSidebar() {
           </Link>
         </SidebarMenuButton>
       </SidebarHeader>
+      <SidebarContent></SidebarContent>
     </Sidebar>
   )
 }

@@ -1,6 +1,9 @@
 import { SidebarProvider } from '@/components/ui/sidebar'
 import { TooltipProvider } from '@/components/ui/tooltip'
-import { AppSidebar } from '@/features/client/navigations/components'
+import {
+  AppNavbar,
+  AppSidebar,
+} from '@/features/client/navigations/components'
 import { ReactNode } from 'react'
 
 export default function Layout({
@@ -12,6 +15,10 @@ export default function Layout({
     <TooltipProvider>
       <SidebarProvider>
         <AppSidebar />
+        <main className='w-full h-full'>
+          <AppNavbar />
+          <div>{children}</div>
+        </main>
       </SidebarProvider>
     </TooltipProvider>
   )
