@@ -32,6 +32,7 @@ model IdeaGroups {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   ideas     Idea[]
+  position  Int
 
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -41,10 +42,10 @@ model IdeaGroups {
 }
 
 model Idea {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
+  id          String     @id @default(uuid())
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  position    Int
   ideaGroupId String
   ideaGroup   IdeaGroups @relation(fields: [ideaGroupId], references: [id], onDelete: Cascade)
 
