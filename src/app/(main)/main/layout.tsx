@@ -15,9 +15,9 @@ export default function Layout({
     <TooltipProvider>
       <SidebarProvider>
         <AppSidebar />
-        <main className='w-full h-full'>
+        <main className='w-full h-full flex flex-col'>
           <AppNavbar />
-          <div>{children}</div>
+          <div className='flex-1 flex  flex-col'>{children}</div>
         </main>
       </SidebarProvider>
     </TooltipProvider>
