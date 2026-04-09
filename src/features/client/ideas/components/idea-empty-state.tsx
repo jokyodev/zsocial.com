@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import Image from 'next/image'
+import { CreateIdeaModal } from './create-idea/create-idea-modal'
 export function EmptyState() {
   return (
     <div className='flex flex-col items-center justify-center p-8 mt-15'>
@@ -21,9 +22,7 @@ export function EmptyState() {
           Initiate a new concept or simply drop your media assets to
           build your flow.
         </p>
-        <Button className='px-10 py-6 text-base font-medium mt-5'>
-          <Plus /> New Idea
-        </Button>
+        <CreateIdeaModal />
       </div>
     </div>
   )

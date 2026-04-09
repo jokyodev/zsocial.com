@@ -1,7 +1,7 @@
 import { ModeToggle } from '@/components/mode-toggle'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { UserButton, ClerkLoading, ClerkLoaded } from '@clerk/nextjs'
-import { FeebackForm } from '@/features/client/feeback/components'
+import { FeebackForm } from '@/features/client/feedback/components'
 import { Notification } from '@/features/client/notification/components'
 import { Loader2 } from 'lucide-react'
 
