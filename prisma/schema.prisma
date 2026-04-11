@@ -32,6 +32,7 @@ model IdeaGroups {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   ideas     Idea[]
+  position  Int
 
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -41,10 +42,13 @@ model IdeaGroups {
 }
 
 model Idea {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id      String  @id @default(uuid())
+  content String?
+  medias  Media[]
 
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  position    Int
   ideaGroupId String
   ideaGroup   IdeaGroups @relation(fields: [ideaGroupId], references: [id], onDelete: Cascade)
 
@@ -54,6 +58,25 @@ model Idea {
   @@index([ideaGroupId])
   @@index([userId])
   @@map("idea")
+}
+
+model Media {
+  id     String      @id @default(uuid())
+  url    String
+  type   String      @default("IMAGE") // IMAGE - VIDEO - GIF
+  source MediaSource @default(LOCAL)
+
+  idea   Idea?   @relation(fields: [ideaId], references: [id], onDelete: Cascade)
+  ideaId String?
+}
+
+enum MediaSource {
+  LOCAL
+  UNSPLASH
+  CANVA
+  GOOGLE_DRIVE
+  DROPBOX
+  ONEDRIVE
 }
 
 enum UserRole {

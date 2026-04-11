@@ -1,3 +1,4 @@
+import { ModeToggle } from '@/components/mode-toggle'
 import { SidebarProvider } from '@/components/ui/sidebar'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import {
@@ -16,8 +17,9 @@ export default function Layout({
       <SidebarProvider>
         <AppSidebar />
         <main className='w-full h-full flex flex-col'>
-          <AppNavbar />
-          <div className='flex-1 flex  flex-col'>{children}</div>
+          <div className='flex-1 flex flex-col border m-2 rounded-lg'>
+            {children}
+          </div>
         </main>
       </SidebarProvider>
     </TooltipProvider>

@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
       const firstName = first_name ?? ''
       const lastName = last_name ?? ''
 
-      await prisma.user.upsert({
+      const user = await prisma.user.upsert({
         where: { clerkId: id },
         update: {
           email,
@@ -76,6 +76,29 @@ export async function POST(req: NextRequest) {
           role: UserRole.USER,
         },
       })
+
+      const existingIdeaGroups = await prisma.ideaGroups.findFirst({
+        where: {
+          userId: user.id,
+        },
+      })
+      if (!existingIdeaGroups) {
+        await prisma.ideaGroups.createMany({
+          data: [
+            {
+              name: 'Unassigned',
+              userId: user.id,
+              position: 1,
+            },
+            {
+              name: 'To Do',
+              userId: user.id,
+              position: 2,
+            },
+          ],
+        })
+      }
+
       break
     }
 
