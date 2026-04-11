@@ -11,7 +11,7 @@ export function MediaPreviewItem({
   onRemove,
 }: MediaPreviewItemProps) {
   return (
-    <div className='relative w-35 h-35 rounded-sm overflow-hidden group'>
+    <div className='relative w-25 h-25 rounded-sm overflow-hidden group'>
       {item.type === 'video' ? (
         <>
           <video

@@ -24,7 +24,7 @@ export function MediaDropTrigger({
       onDragOver={onDragOver}
       onDragLeave={onDragLeave}
       onDrop={onDrop}
-      className={`w-35 h-35 border flex flex-col items-center justify-center rounded-sm border-dashed cursor-pointer transition-colors ${
+      className={`w-25 h-25 border flex flex-col items-center justify-center rounded-sm border-dashed cursor-pointer transition-colors ${
         isDragging ? 'border-primary bg-muted' : 'border-border'
       }`}
     >

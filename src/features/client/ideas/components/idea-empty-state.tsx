@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import Image from 'next/image'
-import { CreateIdeaModal } from './create-idea/create-idea-modal'
+import { CreateIdeaModal } from '../features/create-idea'
 export function EmptyState() {
   return (
     <div className='flex flex-col items-center justify-center p-8 mt-15'>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { MediaItem } from '../types'
 import { ACCEPTED_TYPES } from '../constants'
 import { useMediaDropzone } from '../hooks'
@@ -23,6 +23,10 @@ export function MediaDropzone({ onMediaChange }: MediaDropzoneProps) {
     handleDragLeave,
     handleDrop,
   } = useMediaDropzone({ onMediaChange })
+
+  useEffect(() => {
+    console.log('items', items)
+  }, [items])
 
   return (
     <div className='flex flex-wrap gap-2'>
